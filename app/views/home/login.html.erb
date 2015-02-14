@@ -1,0 +1,6 @@
+<h1>Ingresar</h1>
+<%= form_tag(process_login_path, method: 'post') do |f| %>
+  <%= label_tag(:name, 'Ingrese su nombre:') %>
+  <%= text_field_tag(:name) %>
+  <%= submit_tag('Entrar') %>
+<% end %>

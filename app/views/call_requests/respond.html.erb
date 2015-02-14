@@ -1,0 +1,16 @@
+<h1>Responder mensaje de <%= @call_request.from %></h1>
+<%= form_tag(process_response_call_request_path(@call_request), method: 'post') do |f| %>
+  <div>
+    <%= radio_button_tag(:response, 'wait') %>
+    <%= label_tag(:response_wait, 'Esperar <input id="minutes" type="number" name="minutes" value="5" min="5"> minutos'.html_safe) %>
+  </div>
+  <div>
+    <%= radio_button_tag(:response, "not_found") %>
+    <%= label_tag(:response_not_found, 'No estoy en la oficina') %>
+  </div>
+  <div>
+    <%= radio_button_tag(:response, "not_appointment") %>
+    <%= label_tag(:response_not_appointment, 'No tiene cita') %>
+  </div>
+  <%= submit_tag('Responder') %>
+<% end %>

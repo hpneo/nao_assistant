@@ -1,0 +1,12 @@
+<h1>Mensajes entrantes</h1>
+<% @user.call_requests.each do |call_request| %>
+  <div class="call_request" id="call_request_<%= call_request.id %>">
+    <span>De: <%= call_request.from %></span>
+    <span>Fecha: <%= call_request.created_at %></span>
+    <% if call_request.has_response? %>
+      <span>Respuesta: <%= call_request.response %></span>
+    <% else %>
+      <a href="<%= respond_call_request_path(call_request) %>">Responder</a>
+    <% end %>
+  </div>
+<% end %>
