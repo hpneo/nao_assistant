@@ -19,6 +19,7 @@
 
     channel.bind('call', function(data) {
       alert('Nuevo mensaje de ' + data.message);
+      window.location.reload();
     });
   </script>
   <% end %>
