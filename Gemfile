@@ -42,3 +42,7 @@ group :development, :test do
 end
 
 gem 'pusher'
+
+group :production do
+  gem 'pg'
+end
