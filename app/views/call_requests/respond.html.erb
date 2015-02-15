@@ -1,4 +1,4 @@
-<h1>Responder mensaje de <%= @call_request.from %></h1>
+<h2>Responder mensaje de <%= @call_request.from %></h2>
 <%= form_tag(process_response_call_request_path(@call_request), method: 'post') do |f| %>
   <div>
     <%= radio_button_tag(:response, 'wait') %>

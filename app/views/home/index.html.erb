@@ -1,10 +1,19 @@
-<h1>Mensajes entrantes</h1>
+<h2>Mensajes entrantes</h2>
 <% @user.call_requests.each do |call_request| %>
   <div class="call_request" id="call_request_<%= call_request.id %>">
-    <span>De: <%= call_request.from %></span>
-    <span>Fecha: <%= call_request.created_at %></span>
+    <span>
+      <strong>De:</strong>
+      <%= call_request.from %>
+    </span>
+    <span>
+      <strong>Fecha:</strong>
+      <%= l(call_request.created_at.to_date, format: :default) %> (<%= time_ago_in_words(call_request.created_at, include_seconds: true) %>)
+    </span>
     <% if call_request.has_response? %>
-      <span>Respuesta: <%= call_request.response %></span>
+      <span>
+        <strong>Respuesta:</strong>
+        <%= call_request.response %>
+      </span>
     <% else %>
       <a href="<%= respond_call_request_path(call_request) %>">Responder</a>
     <% end %>
