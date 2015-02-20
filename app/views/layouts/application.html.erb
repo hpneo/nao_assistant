@@ -19,13 +19,15 @@
         channel = pusher.subscribe('assistant_for_<%= @user.id %>');
 
     channel.bind('call', function(data) {
-      alert('Nuevo mensaje de ' + data.message);
-      window.location.reload();
+      if (data.message) {
+        showNotification('Tiene un nuevo mensaje de ' + data.message, data.id);
+      }
     });
   </script>
   <% end %>
 </head>
 <body>
+  <div id="new_call_request"><p>Tiene un nuevo mensaje de {{data}}. <a href="#">Responder</a></p></div>
   <header id="app_header">
     <h1>NAO Assistant</h1>
   </header>

@@ -86,3 +86,32 @@ body {
     }
   }
 }
+
+#new_call_request {
+  background: #fff;
+  min-height: 80px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  border: solid 1px #B1B8BD;
+  box-shadow: 0px 2px 9px #95A5A6;
+  text-align: center;
+  font-size: 36px;
+
+  position: absolute;
+  top: -200px;
+  left: calc(50% - 271px);
+  right: calc(50% - 271px);
+  opacity: 0;
+
+  transition: top 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  p {
+    margin: 0;
+  }
+}
+
+#new_call_request.visible {
+  top: 20px;
+  opacity: 1;
+}

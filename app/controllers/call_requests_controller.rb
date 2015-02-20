@@ -9,7 +9,8 @@ class CallRequestsController < ApplicationController
       @call_request = CallRequest.create(user_id: user.id, from: from)
 
       Pusher["assistant_for_#{user.id}"].trigger('call', {
-        message: from
+        message: from,
+        id: @call_request.id
       })
 
       render json: @call_request.id
